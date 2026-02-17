@@ -1,5 +1,6 @@
 import './css/style.css'
 import { Lato, Playfair_Display } from 'next/font/google'
+import AccessibilityWidget from '@/components/AccessibilityWidget'
 
 const lato = Lato({
   weight: ['300', '400', '700'],
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${lato.variable} ${playfair.variable}`}>
       <body>
         {children}
+        <AccessibilityWidget />
       </body>
     </html>
   )
