@@ -10,6 +10,7 @@ const nextConfig = {
       },
     ],
     domains: ['ui-avatars.com'],
+    unoptimized: false,
   },
 }
 
