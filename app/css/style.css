@@ -57,7 +57,7 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--dark);
@@ -73,7 +73,7 @@ body.loading {
 }
 
 h1, h2, .serif-font {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair), 'Playfair Display', serif;
 }
 
 /* ----- Header - Refined ----- */
@@ -354,7 +354,8 @@ h1, h2, .serif-font {
     opacity: 1;
 }
 
-.inset-card img {
+.inset-card img,
+.inset-card .inset-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -363,7 +364,8 @@ h1, h2, .serif-font {
     filter: brightness(0.95);
 }
 
-.inset-card:hover img {
+.inset-card:hover img,
+.inset-card:hover .inset-image {
     transform: scale(1.05);
     filter: brightness(1);
 }
@@ -593,11 +595,17 @@ h1, h2, .serif-font {
 .contact-card .avatar {
     width: 3.5rem;
     height: 3.5rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--gold);
     box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
     transition: all 0.3s ease;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-card:hover .avatar {
@@ -738,6 +746,48 @@ h1, h2, .serif-font {
     color: #e57373;
 }
 
+/* Privacy Checkbox */
+.privacy-checkbox {
+    margin: 1rem 0;
+    padding: 0.75rem 0;
+}
+
+.privacy-checkbox label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--gray-300);
+    line-height: 1.5;
+}
+
+.privacy-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--gold);
+    flex-shrink: 0;
+}
+
+.privacy-checkbox input[type="checkbox"]:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.privacy-checkbox a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 600;
+}
+
+.privacy-checkbox a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
 /* QR / More info (optional) */
 .more-info {
     text-align: center;
@@ -837,19 +887,20 @@ h1, h2, .serif-font {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, var(--dark) 0%, var(--dark-section) 100%);
-    z-index: 9999;
+    z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1;
     visibility: visible;
     transition: opacity 0.6s ease, visibility 0.6s ease;
+    pointer-events: auto;
 }
 
 .loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .loader-content {
@@ -967,5 +1018,557 @@ h1, h2, .serif-font {
     
     .header.scrolled .header-logo-img {
         height: 40px;
+    }
+}
+
+/* ===== Cookie Consent Banner ===== */
+.consent-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    backdrop-filter: blur(4px);
+}
+
+.consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--dark-section);
+    border-top: 2px solid var(--gold);
+    padding: 2rem;
+    z-index: 9998;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.consent-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--white);
+}
+
+.consent-content h3 {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+.consent-content > p {
+    color: var(--gray-300);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.consent-settings {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.consent-setting {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.consent-setting:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.consent-setting label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.consent-setting input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--gold);
+}
+
+.consent-setting input[type="checkbox"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.consent-setting .required {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    font-weight: 400;
+}
+
+.setting-desc {
+    font-size: 0.85rem;
+    color: var(--gray-400);
+    margin: 0.5rem 0 0 2rem;
+    line-height: 1.5;
+}
+
+.consent-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.consent-links a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.consent-links a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
+.consent-links span {
+    color: var(--gray-500);
+}
+
+.consent-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.consent-buttons .btn-primary,
+.consent-buttons .btn-secondary {
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.consent-buttons .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--dark);
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+}
+
+.consent-buttons .btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+    transform: translateY(-2px);
+}
+
+.consent-buttons .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.consent-buttons .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .consent-banner {
+        padding: 1.5rem;
+    }
+    
+    .consent-buttons {
+        flex-direction: column;
+    }
+    
+    .consent-buttons .btn-primary,
+    .consent-buttons .btn-secondary {
+        width: 100%;
+    }
+}
+
+/* ===== Policy Pages (Privacy & Terms) ===== */
+.policy-page {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 4rem;
+    background: var(--dark);
+}
+
+.policy-page .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.policy-page h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+.policy-page .last-updated {
+    color: var(--gray-400);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.policy-page section {
+    margin-bottom: 3rem;
+}
+
+.policy-page h2 {
+    font-size: 1.75rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+.policy-page h3 {
+    font-size: 1.25rem;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.policy-page p {
+    color: var(--gray-300);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.policy-page ul {
+    color: var(--gray-300);
+    line-height: 1.8;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.policy-page ul li {
+    margin-bottom: 0.5rem;
+}
+
+.policy-page ul li strong {
+    color: var(--gold);
+}
+
+.policy-page a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.policy-page a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
+.policy-page ul li a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.policy-page ul li a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
+.contact-info {
+    background: rgba(197, 160, 89, 0.1);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.policy-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--gold-light);
+}
+
+/* ===== Footer Links ===== */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-links span {
+    color: var(--gray-600);
+}
+
+/* ===== Thank You Page ===== */
+.thank-you-page {
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 4rem;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thank-you-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.thank-you-icon {
+    margin: 0 auto 2rem;
+    width: 80px;
+    height: 80px;
+    color: var(--gold);
+    animation: checkmarkAppear 0.6s ease-out;
+}
+
+.thank-you-icon .check-circle {
+    stroke-dasharray: 62.83;
+    stroke-dashoffset: 62.83;
+    animation: circleDraw 0.6s ease-out forwards;
+}
+
+.thank-you-icon .check-mark {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: checkmarkDraw 0.4s ease-out 0.3s forwards;
+}
+
+@keyframes circleDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes checkmarkDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes checkmarkAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.thank-you-content h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+    animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.thank-you-message {
+    font-size: 1.1rem;
+    color: var(--gray-300);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease 0.4s both;
+}
+
+.thank-you-details {
+    background: rgba(197, 160, 89, 0.1);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    text-align: left;
+    animation: fadeInUp 0.6s ease 0.6s both;
+}
+
+.thank-you-details p {
+    color: var(--gray-300);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.thank-you-details p:last-child {
+    margin-bottom: 0;
+}
+
+.thank-you-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2.5rem 0;
+    animation: fadeInUp 0.6s ease 0.8s both;
+}
+
+.thank-you-actions .btn-primary,
+.thank-you-actions .btn-secondary {
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.thank-you-actions .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--dark);
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+}
+
+.thank-you-actions .btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+    transform: translateY(-2px);
+}
+
+.thank-you-actions .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.thank-you-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.thank-you-contact {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.6s ease 1s both;
+}
+
+.thank-you-contact > p {
+    color: var(--gray-400);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.thank-you-contact .contact-info {
+    background: transparent;
+    border-left: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.thank-you-contact .contact-info p {
+    margin-bottom: 0.5rem;
+    color: var(--gray-300);
+}
+
+.thank-you-contact .contact-info a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.thank-you-contact .contact-info a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .thank-you-page {
+        padding-top: 100px;
+        padding-bottom: 2rem;
+    }
+
+    .thank-you-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .thank-you-actions {
+        flex-direction: column;
+    }
+
+    .thank-you-actions .btn-primary,
+    .thank-you-actions .btn-secondary {
+        width: 100%;
     }
 }
