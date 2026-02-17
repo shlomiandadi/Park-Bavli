@@ -169,14 +169,33 @@ export default function AccessibilityWidget() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+          {/* International Symbol of Access - Wheelchair Icon */}
+          {/* Person head */}
+          <circle cx="8.5" cy="7.5" r="1.8" fill="currentColor" />
+          {/* Person body */}
           <path
-            d="M12 8V16M8 12H16"
+            d="M8.5 9.5c0 .5-.2 1-.5 1.5l-.5 1h1.5l.5-1.5c0-.3.1-.6.2-.9l-.2-1.1h-1z"
+            fill="currentColor"
+          />
+          {/* Wheelchair seat */}
+          <rect x="9" y="11" width="3" height="1.5" rx="0.3" fill="currentColor" />
+          {/* Wheelchair back */}
+          <rect x="11.5" y="9.5" width="1.5" height="2.5" rx="0.3" fill="currentColor" />
+          {/* Wheelchair armrest */}
+          <rect x="9" y="10" width="3" height="0.5" rx="0.2" fill="currentColor" />
+          {/* Front wheel */}
+          <circle cx="12.5" cy="15.5" r="2" stroke="currentColor" strokeWidth="1.2" fill="none" />
+          <circle cx="12.5" cy="15.5" r="0.8" fill="currentColor" />
+          {/* Back wheel */}
+          <circle cx="17" cy="15.5" r="2" stroke="currentColor" strokeWidth="1.2" fill="none" />
+          <circle cx="17" cy="15.5" r="0.8" fill="currentColor" />
+          {/* Wheelchair frame */}
+          <path
+            d="M11.5 12.5l1 2.5M12.5 12.5l1 2.5M13.5 12.5l1.5 2.5"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1"
             strokeLinecap="round"
           />
-          <circle cx="12" cy="12" r="3" fill="currentColor" />
         </svg>
         <span className="accessibility-label">נגישות</span>
       </button>
