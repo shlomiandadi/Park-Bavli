@@ -1397,13 +1397,13 @@ h1, h2, .serif-font {
 }
 
 .accessibility-widget-toggle svg {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
 }
 
 .accessibility-widget-toggle > svg {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
 }
 
 .accessibility-overlay {

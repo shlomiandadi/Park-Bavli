@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { LiaUniversalAccessSolid } from 'react-icons/lia'
+import { IoAccessibilitySharp } from 'react-icons/io5'
 
 export default function AccessibilityWidget() {
   const [isOpen, setIsOpen] = useState(false)
@@ -163,7 +163,7 @@ export default function AccessibilityWidget() {
         aria-expanded={isOpen}
         title="Accessibility Options"
       >
-        <LiaUniversalAccessSolid />
+        <IoAccessibilitySharp />
       </button>
 
       {/* Accessibility Panel */}
