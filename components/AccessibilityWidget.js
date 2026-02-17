@@ -171,30 +171,31 @@ export default function AccessibilityWidget() {
         >
           {/* International Symbol of Access - Wheelchair Icon */}
           {/* Person head */}
-          <circle cx="8" cy="7" r="2" fill="currentColor" />
-          {/* Person body and arms */}
+          <circle cx="7.5" cy="6.5" r="1.8" fill="currentColor" />
+          {/* Person torso */}
           <path
-            d="M8 9.5c0 .3-.1.6-.2.9l-.3 1.2c-.1.3-.1.6 0 .9l.5 1h1.5l.5-1.5c0-.3.1-.6.1-.9l-.1-1.1h-1.5c-.2 0-.4.1-.5.3z"
+            d="M7.5 8.5c-.2.3-.3.6-.3 1v1.5c0 .2.1.4.2.6l.3.9h1.2l.3-1c0-.2.1-.4.1-.6v-1.2c0-.2-.1-.4-.2-.6l-.4-.8h-1.2z"
             fill="currentColor"
           />
           {/* Wheelchair seat */}
-          <rect x="9.5" y="11.5" width="3.5" height="1.2" rx="0.2" fill="currentColor" />
+          <rect x="9.5" y="11" width="3.5" height="1.3" rx="0.2" fill="currentColor" />
           {/* Wheelchair backrest */}
-          <rect x="12.5" y="10" width="1.2" height="2.5" rx="0.2" fill="currentColor" />
+          <rect x="12.5" y="9.5" width="1.2" height="2.5" rx="0.2" fill="currentColor" />
           {/* Wheelchair armrest */}
-          <rect x="9.5" y="10.5" width="3.5" height="0.4" rx="0.2" fill="currentColor" />
-          {/* Front wheel */}
-          <circle cx="13" cy="16" r="2.2" stroke="currentColor" strokeWidth="1.3" fill="none" />
-          <circle cx="13" cy="16" r="0.9" fill="currentColor" />
-          {/* Back wheel */}
-          <circle cx="17.5" cy="16" r="2.2" stroke="currentColor" strokeWidth="1.3" fill="none" />
-          <circle cx="17.5" cy="16" r="0.9" fill="currentColor" />
-          {/* Wheelchair frame connecting wheels */}
+          <rect x="9.5" y="10" width="3.5" height="0.5" rx="0.2" fill="currentColor" />
+          {/* Front wheel - larger */}
+          <circle cx="13" cy="15.5" r="2.3" stroke="currentColor" strokeWidth="1.4" fill="none" />
+          <circle cx="13" cy="15.5" r="1" fill="currentColor" />
+          {/* Back wheel - larger */}
+          <circle cx="17.5" cy="15.5" r="2.3" stroke="currentColor" strokeWidth="1.4" fill="none" />
+          <circle cx="17.5" cy="15.5" r="1" fill="currentColor" />
+          {/* Wheelchair frame - connecting seat to wheels */}
           <path
-            d="M12.5 12.5l0.5 3M13.5 12.5l0.5 3M14.5 12.5l1 3"
+            d="M12.5 12l0.5 3M13.5 12l0.5 3M14.5 12l1 3"
             stroke="currentColor"
-            strokeWidth="1.2"
+            strokeWidth="1.3"
             strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
         <span className="accessibility-label">Accessibility</span>
