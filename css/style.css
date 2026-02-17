@@ -98,37 +98,31 @@ h1, h2, .serif-font {
 }
 
 .logo-peer {
-    border: 1.5px solid var(--gold);
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(197, 160, 89, 0.1);
 }
 
 .logo-peer:hover {
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
     transform: translateY(-1px);
+    opacity: 0.9;
 }
 
-.logo-peer .brand {
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--white);
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.header-logo-img {
+    height: 60px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(197, 160, 89, 0.2));
+    transition: all 0.3s ease;
 }
 
-.logo-peer .tagline {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    border-top: 1px solid var(--gold);
-    margin-top: 0.2rem;
-    padding-top: 0.2rem;
+.header.scrolled .header-logo-img {
+    height: 50px;
+}
+
+.logo-peer:hover .header-logo-img {
+    filter: drop-shadow(0 4px 12px rgba(197, 160, 89, 0.4));
 }
 
 .logo-plaza {
@@ -867,34 +861,27 @@ h1, h2, .serif-font {
     margin-bottom: 3rem;
     opacity: 0;
     animation: fadeInUp 0.8s ease 0.2s forwards;
-    padding: 1rem 2rem;
-    border: 1.5px solid var(--gold);
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(197, 160, 89, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.loader-brand {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--white);
-    text-transform: uppercase;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+.loader-logo-img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 20px rgba(197, 160, 89, 0.3));
+    animation: logoGlow 2s ease-in-out infinite alternate;
 }
 
-.loader-tagline {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    border-top: 1px solid var(--gold);
-    padding-top: 0.5rem;
-    display: inline-block;
-    margin-top: 0.5rem;
+@keyframes logoGlow {
+    0% {
+        filter: drop-shadow(0 4px 20px rgba(197, 160, 89, 0.3));
+    }
+    100% {
+        filter: drop-shadow(0 4px 30px rgba(197, 160, 89, 0.5));
+    }
 }
 
 .loader-title {
@@ -968,15 +955,17 @@ h1, h2, .serif-font {
 }
 
 @media (max-width: 768px) {
-    .loader-brand {
-        font-size: 2rem;
+    .loader-logo-img {
+        max-width: 280px;
+        padding: 0 1rem;
     }
     
-    .loader-title {
-        font-size: clamp(2rem, 10vw, 3.5rem);
+    .header-logo-img {
+        height: 45px;
+        max-width: 150px;
     }
     
-    .loader-city {
-        font-size: clamp(1.25rem, 6vw, 2rem);
+    .header.scrolled .header-logo-img {
+        height: 40px;
     }
 }
