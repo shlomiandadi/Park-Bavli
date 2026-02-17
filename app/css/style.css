@@ -1364,6 +1364,169 @@ h1, h2, .serif-font {
     color: var(--gray-600);
 }
 
+/* ===== Enable.co.il Accessibility Popup Fix ===== */
+/* Fix white text on white background issue */
+#enable-accessibility-popup,
+.enable-accessibility-popup,
+[class*="enable"],
+[id*="enable"],
+[class*="accessibility"],
+[id*="accessibility"] {
+    background: var(--dark-section) !important;
+    color: var(--white) !important;
+    border: 2px solid var(--gold) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix text colors in enable popup */
+#enable-accessibility-popup *,
+.enable-accessibility-popup *,
+[class*="enable"] *,
+[id*="enable"] *,
+[class*="accessibility"] *,
+[id*="accessibility"] * {
+    color: var(--white) !important;
+}
+
+/* Fix headings */
+#enable-accessibility-popup h1,
+#enable-accessibility-popup h2,
+#enable-accessibility-popup h3,
+#enable-accessibility-popup h4,
+.enable-accessibility-popup h1,
+.enable-accessibility-popup h2,
+.enable-accessibility-popup h3,
+.enable-accessibility-popup h4,
+[class*="enable"] h1,
+[class*="enable"] h2,
+[class*="enable"] h3,
+[class*="enable"] h4 {
+    color: var(--gold) !important;
+}
+
+/* Fix links */
+#enable-accessibility-popup a,
+.enable-accessibility-popup a,
+[class*="enable"] a,
+[id*="enable"] a {
+    color: var(--gold) !important;
+    text-decoration: underline !important;
+}
+
+#enable-accessibility-popup a:hover,
+.enable-accessibility-popup a:hover,
+[class*="enable"] a:hover,
+[id*="enable"] a:hover {
+    color: var(--gold-light) !important;
+}
+
+/* Fix buttons */
+#enable-accessibility-popup button,
+.enable-accessibility-popup button,
+[class*="enable"] button,
+[id*="enable"] button {
+    background: var(--gold) !important;
+    color: var(--dark) !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+#enable-accessibility-popup button:hover,
+.enable-accessibility-popup button:hover,
+[class*="enable"] button:hover,
+[id*="enable"] button:hover {
+    background: var(--gold-light) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.4) !important;
+}
+
+/* Fix close button */
+#enable-accessibility-popup .close,
+.enable-accessibility-popup .close,
+[class*="enable"] .close,
+[id*="enable"] .close {
+    color: var(--white) !important;
+    background: transparent !important;
+    border: 1px solid var(--gold) !important;
+}
+
+/* Fix overlay */
+.enable-accessibility-overlay,
+[class*="enable-overlay"],
+[id*="enable-overlay"] {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* Additional Enable.co.il selectors - more specific */
+div[class*="enable"],
+div[id*="enable"],
+div[class*="Enable"],
+div[id*="Enable"],
+div[class*="accessibility"],
+div[id*="accessibility"] {
+    background: var(--dark-section) !important;
+    color: var(--white) !important;
+}
+
+div[class*="enable"] p,
+div[class*="enable"] span,
+div[class*="enable"] div,
+div[id*="enable"] p,
+div[id*="enable"] span,
+div[id*="enable"] div,
+div[class*="Enable"] p,
+div[class*="Enable"] span,
+div[class*="Enable"] div {
+    color: var(--white) !important;
+}
+
+/* Fix any white backgrounds */
+div[style*="background: white"],
+div[style*="background: #fff"],
+div[style*="background: #ffffff"],
+div[style*="background-color: white"],
+div[style*="background-color: #fff"],
+div[style*="background-color: #ffffff"] {
+    background: var(--dark-section) !important;
+    background-color: var(--dark-section) !important;
+}
+
+/* Fix any white text */
+div[style*="color: white"],
+div[style*="color: #fff"],
+div[style*="color: #ffffff"] {
+    color: var(--white) !important;
+}
+
+/* Global fix for enable popup - highest priority */
+body > div[class*="enable"],
+body > div[id*="enable"],
+body > div[class*="Enable"] {
+    background: var(--dark-section) !important;
+    color: var(--white) !important;
+    border: 2px solid var(--gold) !important;
+}
+
+body > div[class*="enable"] *,
+body > div[id*="enable"] *,
+body > div[class*="Enable"] * {
+    color: var(--white) !important;
+}
+
+body > div[class*="enable"] h1,
+body > div[class*="enable"] h2,
+body > div[class*="enable"] h3,
+body > div[id*="enable"] h1,
+body > div[id*="enable"] h2,
+body > div[id*="enable"] h3 {
+    color: var(--gold) !important;
+}
+
 /* ===== Thank You Page ===== */
 .thank-you-page {
     min-height: 100vh;
