@@ -1365,82 +1365,10 @@ h1, h2, .serif-font {
 }
 
 /* ===== Enable.co.il Accessibility Popup Fix ===== */
-/* Comprehensive fix for white text on white background */
+/* Fix white text on white background - CSS only handles colors, JavaScript handles dynamic fixes */
 
-/* Fix all white backgrounds in enable elements */
-div[style*="background: white"],
-div[style*="background: #fff"],
-div[style*="background: #ffffff"],
-div[style*="background-color: white"],
-div[style*="background-color: #fff"],
-div[style*="background-color: #ffffff"],
-div[class*="enable"][style*="background"],
-div[id*="enable"][style*="background"] {
-    background: var(--dark-section) !important;
-    background-color: var(--dark-section) !important;
-}
-
-/* Fix all white text in enable elements - including ESC */
-div[style*="color: white"],
-div[style*="color: #fff"],
-div[style*="color: #ffffff"],
-span[style*="color: white"],
-span[style*="color: #fff"],
-p[style*="color: white"],
-p[style*="color: #fff"],
-div[class*="enable"] *,
-div[id*="enable"] *,
-[class*="Enable"] *,
-[id*="Enable"] * {
-    color: var(--white) !important;
-}
-
-/* Fix popup containers */
-div[class*="enable"]:not([class*="icon"]),
-div[id*="enable"]:not([id*="icon"]),
-[class*="Enable"]:not([class*="icon"]) {
-    background: var(--dark-section) !important;
-    background-color: var(--dark-section) !important;
-    color: var(--white) !important;
-}
-
-/* Fix headings */
-div[class*="enable"] h1,
-div[class*="enable"] h2,
-div[class*="enable"] h3,
-div[class*="enable"] h4,
-div[id*="enable"] h1,
-div[id*="enable"] h2,
-div[id*="enable"] h3,
-div[id*="enable"] h4 {
-    color: var(--gold) !important;
-}
-
-/* Fix links */
-div[class*="enable"] a,
-div[id*="enable"] a {
-    color: var(--gold) !important;
-}
-
-/* Fix buttons - including Close button */
-div[class*="enable"] button,
-div[id*="enable"] button,
-div[class*="enable"] .close,
-div[id*="enable"] .close {
-    background-color: var(--gold) !important;
-    color: var(--dark) !important;
-    border: none !important;
-}
-
-/* Fix ESC text specifically - target by common patterns */
-span[class*="esc"],
-div[class*="esc"],
-[id*="esc"],
-span[style*="ESC"],
-div[style*="ESC"] {
-    color: var(--white) !important;
-    background: transparent !important;
-}
+/* Note: We use minimal CSS here to avoid breaking functionality */
+/* The EnableFix.js component handles most fixes dynamically */
 
 /* ===== Thank You Page ===== */
 .thank-you-page {
