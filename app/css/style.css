@@ -1367,60 +1367,43 @@ h1, h2, .serif-font {
 /* ===== Enable.co.il Accessibility Popup Fix ===== */
 /* Only fix colors, don't break functionality */
 
-/* Fix popup content - only when it's actually visible/open */
-div[class*="enable"][style*="display"],
-div[id*="enable"][style*="display"],
-div[class*="Enable"][style*="display"] {
+/* Fix popup content background - only when visible, exclude icon */
+div[class*="enable"]:not([class*="icon"]):not([id*="icon"])[style*="display: block"],
+div[id*="enable"]:not([class*="icon"]):not([id*="icon"])[style*="display: block"] {
     background: var(--dark-section) !important;
     background-color: var(--dark-section) !important;
     color: var(--white) !important;
 }
 
-/* Fix text colors in popup content only */
-div[class*="enable"] p:not([style*="display: none"]),
-div[class*="enable"] span:not([style*="display: none"]),
-div[class*="enable"] div:not([style*="display: none"]),
-div[id*="enable"] p:not([style*="display: none"]),
-div[id*="enable"] span:not([style*="display: none"]),
-div[id*="enable"] div:not([style*="display: none"]) {
+/* Fix text colors in popup content only - exclude icon */
+div[class*="enable"]:not([class*="icon"]) p,
+div[class*="enable"]:not([class*="icon"]) span:not([class*="icon"]),
+div[id*="enable"]:not([id*="icon"]) p,
+div[id*="enable"]:not([id*="icon"]) span:not([class*="icon"]) {
     color: var(--white) !important;
 }
 
-/* Fix headings in popup */
-div[class*="enable"] h1,
-div[class*="enable"] h2,
-div[class*="enable"] h3,
-div[class*="enable"] h4,
-div[id*="enable"] h1,
-div[id*="enable"] h2,
-div[id*="enable"] h3,
-div[id*="enable"] h4 {
+/* Fix headings in popup - exclude icon */
+div[class*="enable"]:not([class*="icon"]) h1,
+div[class*="enable"]:not([class*="icon"]) h2,
+div[class*="enable"]:not([class*="icon"]) h3,
+div[id*="enable"]:not([id*="icon"]) h1,
+div[id*="enable"]:not([id*="icon"]) h2,
+div[id*="enable"]:not([id*="icon"]) h3 {
     color: var(--gold) !important;
 }
 
-/* Fix links in popup */
-div[class*="enable"] a,
-div[id*="enable"] a {
+/* Fix links in popup - exclude icon */
+div[class*="enable"]:not([class*="icon"]) a,
+div[id*="enable"]:not([id*="icon"]) a {
     color: var(--gold) !important;
 }
 
-div[class*="enable"] a:hover,
-div[id*="enable"] a:hover {
-    color: var(--gold-light) !important;
-}
-
-/* Fix buttons in popup - only background and text color */
-div[class*="enable"] button,
-div[id*="enable"] button {
-    background: var(--gold) !important;
+/* Fix buttons in popup - exclude icon */
+div[class*="enable"]:not([class*="icon"]) button,
+div[id*="enable"]:not([id*="icon"]) button {
     background-color: var(--gold) !important;
     color: var(--dark) !important;
-}
-
-div[class*="enable"] button:hover,
-div[id*="enable"] button:hover {
-    background: var(--gold-light) !important;
-    background-color: var(--gold-light) !important;
 }
 
 
