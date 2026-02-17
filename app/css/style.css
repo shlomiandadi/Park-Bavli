@@ -1423,13 +1423,6 @@ div[id*="enable"] button:hover {
     background-color: var(--gold-light) !important;
 }
 
-/* Don't interfere with icon positioning */
-div[class*="enable"][class*="icon"],
-div[id*="enable"][id*="icon"],
-div[class*="enable"] [class*="icon"] {
-    position: relative !important;
-    display: inline-block !important;
-}
 
 /* Fix white backgrounds - only override white, don't change positioning */
 div[style*="background: white"]:not([style*="position"]),
