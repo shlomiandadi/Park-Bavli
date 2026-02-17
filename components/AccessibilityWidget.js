@@ -171,40 +171,40 @@ export default function AccessibilityWidget() {
         >
           {/* International Symbol of Access - Wheelchair Icon */}
           {/* Person head */}
-          <circle cx="8.5" cy="7.5" r="1.8" fill="currentColor" />
-          {/* Person body */}
+          <circle cx="8" cy="7" r="2" fill="currentColor" />
+          {/* Person body and arms */}
           <path
-            d="M8.5 9.5c0 .5-.2 1-.5 1.5l-.5 1h1.5l.5-1.5c0-.3.1-.6.2-.9l-.2-1.1h-1z"
+            d="M8 9.5c0 .3-.1.6-.2.9l-.3 1.2c-.1.3-.1.6 0 .9l.5 1h1.5l.5-1.5c0-.3.1-.6.1-.9l-.1-1.1h-1.5c-.2 0-.4.1-.5.3z"
             fill="currentColor"
           />
           {/* Wheelchair seat */}
-          <rect x="9" y="11" width="3" height="1.5" rx="0.3" fill="currentColor" />
-          {/* Wheelchair back */}
-          <rect x="11.5" y="9.5" width="1.5" height="2.5" rx="0.3" fill="currentColor" />
+          <rect x="9.5" y="11.5" width="3.5" height="1.2" rx="0.2" fill="currentColor" />
+          {/* Wheelchair backrest */}
+          <rect x="12.5" y="10" width="1.2" height="2.5" rx="0.2" fill="currentColor" />
           {/* Wheelchair armrest */}
-          <rect x="9" y="10" width="3" height="0.5" rx="0.2" fill="currentColor" />
+          <rect x="9.5" y="10.5" width="3.5" height="0.4" rx="0.2" fill="currentColor" />
           {/* Front wheel */}
-          <circle cx="12.5" cy="15.5" r="2" stroke="currentColor" strokeWidth="1.2" fill="none" />
-          <circle cx="12.5" cy="15.5" r="0.8" fill="currentColor" />
+          <circle cx="13" cy="16" r="2.2" stroke="currentColor" strokeWidth="1.3" fill="none" />
+          <circle cx="13" cy="16" r="0.9" fill="currentColor" />
           {/* Back wheel */}
-          <circle cx="17" cy="15.5" r="2" stroke="currentColor" strokeWidth="1.2" fill="none" />
-          <circle cx="17" cy="15.5" r="0.8" fill="currentColor" />
-          {/* Wheelchair frame */}
+          <circle cx="17.5" cy="16" r="2.2" stroke="currentColor" strokeWidth="1.3" fill="none" />
+          <circle cx="17.5" cy="16" r="0.9" fill="currentColor" />
+          {/* Wheelchair frame connecting wheels */}
           <path
-            d="M11.5 12.5l1 2.5M12.5 12.5l1 2.5M13.5 12.5l1.5 2.5"
+            d="M12.5 12.5l0.5 3M13.5 12.5l0.5 3M14.5 12.5l1 3"
             stroke="currentColor"
-            strokeWidth="1"
+            strokeWidth="1.2"
             strokeLinecap="round"
           />
         </svg>
-        <span className="accessibility-label">נגישות</span>
+        <span className="accessibility-label">Accessibility</span>
       </button>
 
       {/* Accessibility Panel */}
       {isOpen && (
         <div className="accessibility-panel" role="dialog" aria-label="Accessibility Options">
           <div className="accessibility-panel-header">
-            <h2>אפשרויות נגישות</h2>
+            <h2>Accessibility Options</h2>
             <button
               className="accessibility-close"
               onClick={() => setIsOpen(false)}
@@ -217,7 +217,7 @@ export default function AccessibilityWidget() {
           <div className="accessibility-panel-content">
             {/* Font Size */}
             <div className="accessibility-section">
-              <h3>גודל טקסט</h3>
+              <h3>Text Size</h3>
               <div className="accessibility-controls">
                 <button
                   onClick={decreaseFontSize}
@@ -239,72 +239,72 @@ export default function AccessibilityWidget() {
                   className="accessibility-btn-reset"
                   aria-label="Reset font size"
                 >
-                  איפוס
+                  Reset
                 </button>
               </div>
             </div>
 
             {/* Contrast */}
             <div className="accessibility-section">
-              <h3>ניגודיות</h3>
+              <h3>Contrast</h3>
               <div className="accessibility-controls">
                 <button
                   onClick={() => setContrast('normal')}
                   className={`accessibility-btn ${settings.contrast === 'normal' ? 'active' : ''}`}
                   aria-label="Normal contrast"
                 >
-                  רגיל
+                  Normal
                 </button>
                 <button
                   onClick={() => setContrast('high')}
                   className={`accessibility-btn ${settings.contrast === 'high' ? 'active' : ''}`}
                   aria-label="High contrast"
                 >
-                  ניגודיות גבוהה
+                  High
                 </button>
                 <button
                   onClick={() => setContrast('dark')}
                   className={`accessibility-btn ${settings.contrast === 'dark' ? 'active' : ''}`}
                   aria-label="Dark mode"
                 >
-                  מצב כהה
+                  Dark
                 </button>
               </div>
             </div>
 
             {/* Reading Guide */}
             <div className="accessibility-section">
-              <h3>מדריך קריאה</h3>
+              <h3>Reading Guide</h3>
               <button
                 onClick={toggleReadingGuide}
                 className={`accessibility-toggle ${settings.readingGuide ? 'active' : ''}`}
                 aria-pressed={settings.readingGuide}
               >
-                {settings.readingGuide ? 'מופעל' : 'כבוי'}
+                {settings.readingGuide ? 'On' : 'Off'}
               </button>
             </div>
 
             {/* Keyboard Navigation */}
             <div className="accessibility-section">
-              <h3>ניווט מקלדת</h3>
+              <h3>Keyboard Navigation</h3>
               <button
                 onClick={toggleKeyboardNav}
                 className={`accessibility-toggle ${settings.keyboardNav ? 'active' : ''}`}
                 aria-pressed={settings.keyboardNav}
               >
-                {settings.keyboardNav ? 'מופעל' : 'כבוי'}
+                {settings.keyboardNav ? 'On' : 'Off'}
               </button>
             </div>
 
             {/* Animations */}
             <div className="accessibility-section">
-              <h3>אנימציות</h3>
+              <h3>Animations</h3>
               <button
                 onClick={settings.animationsDisabled ? enableAnimations : stopAnimations}
                 className={`accessibility-toggle ${settings.animationsDisabled ? 'active' : ''}`}
                 aria-pressed={settings.animationsDisabled}
               >
-                {settings.animationsDisabled ? 'מושבתות' : 'מופעלות'}
+                {settings.animationsDisabled ? 'Disabled' : 'Enabled'}
               </button>
             </div>
 
@@ -315,7 +315,7 @@ export default function AccessibilityWidget() {
                 className="accessibility-btn-reset-all"
                 aria-label="Reset all accessibility settings"
               >
-                איפוס כל ההגדרות
+                Reset All Settings
               </button>
             </div>
 
@@ -326,7 +326,7 @@ export default function AccessibilityWidget() {
                 className="accessibility-statement-link"
                 onClick={() => setIsOpen(false)}
               >
-                תקנון נגישות
+                Accessibility Statement
               </Link>
             </div>
           </div>
