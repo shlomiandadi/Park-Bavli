@@ -1364,12 +1364,6 @@ h1, h2, .serif-font {
     color: var(--gray-600);
 }
 
-/* ===== Enable.co.il Accessibility Popup Fix ===== */
-/* Fix white text on white background - CSS only handles colors, JavaScript handles dynamic fixes */
-
-/* Note: We use minimal CSS here to avoid breaking functionality */
-/* The EnableFix.js component handles most fixes dynamically */
-
 /* ===== Thank You Page ===== */
 .thank-you-page {
     min-height: 100vh;
