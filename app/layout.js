@@ -1,6 +1,7 @@
 import './css/style.css'
 import { Lato, Playfair_Display } from 'next/font/google'
 import Script from 'next/script'
+import EnableFix from '@/components/EnableFix'
 
 const lato = Lato({
   weight: ['300', '400', '700'],
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
           src="https://cdn.enable.co.il/licenses/enable-L7364gw2aj9ikt4-1220-79816/init.js"
           strategy="afterInteractive"
         />
+        <EnableFix />
         {children}
       </body>
     </html>
