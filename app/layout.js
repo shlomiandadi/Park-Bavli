@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${lato.variable} ${playfair.variable}`}>
       <body>
         <Script
-          src="https://cdn.enable.co.il/licenses/enable-L7364gw2aj9ikt4-1220-79802/init.js"
+          src="https://cdn.enable.co.il/licenses/enable-L7364gw2aj9ikt4-1220-79816/init.js"
           strategy="afterInteractive"
         />
         {children}
