@@ -1401,6 +1401,11 @@ h1, h2, .serif-font {
     height: 28px;
 }
 
+.accessibility-widget-toggle > svg {
+    width: 28px;
+    height: 28px;
+}
+
 .accessibility-overlay {
     position: fixed;
     top: 0;

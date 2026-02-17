@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { LiaUniversalAccessSolid } from 'react-icons/lia'
 
 export default function AccessibilityWidget() {
   const [isOpen, setIsOpen] = useState(false)
@@ -162,42 +163,7 @@ export default function AccessibilityWidget() {
         aria-expanded={isOpen}
         title="Accessibility Options"
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Person icon with arms open */}
-          {/* Head */}
-          <circle cx="12" cy="7" r="2.5" fill="currentColor" />
-          {/* Body */}
-          <path
-            d="M12 10.5c-1.5 0-2.5 1-2.5 2.5v4h5v-4c0-1.5-1-2.5-2.5-2.5z"
-            fill="currentColor"
-          />
-          {/* Left arm */}
-          <path
-            d="M7 11.5c-0.5 0-1 0.5-1 1v1c0 0.5 0.5 1 1 1h1v-3h-1z"
-            fill="currentColor"
-          />
-          {/* Right arm */}
-          <path
-            d="M17 11.5c0.5 0 1 0.5 1 1v1c0 0.5-0.5 1-1 1h-1v-3h1z"
-            fill="currentColor"
-          />
-          {/* Left leg */}
-          <path
-            d="M10 17c0-0.5 0.5-1 1-1h1v3h-1c-0.5 0-1-0.5-1-2z"
-            fill="currentColor"
-          />
-          {/* Right leg */}
-          <path
-            d="M14 17c0-0.5-0.5-1-1-1h-1v3h1c0.5 0 1-0.5 1-2z"
-            fill="currentColor"
-          />
-        </svg>
+        <LiaUniversalAccessSolid />
       </button>
 
       {/* Accessibility Panel */}
